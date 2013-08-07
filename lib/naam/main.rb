@@ -9,7 +9,6 @@ module Naam
     #
     # Returns nothing.
     def self.run(filename)
-      filename = filename
       raise ArgumentError unless Reader.naam_source_file?(filename)
       source_lines = Reader.read filename
 
