@@ -3,4 +3,11 @@
 $LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
 $NAAM_PATH = File.expand_path(File.dirname(__FILE__)) + '/..'
 
-require 'Naam'
+require 'naam'
+
+if ARGV[0].nil?
+  puts "usage: naam filename"
+else
+  main = Naam::Main.run ARGV[0].dup
+end
+
