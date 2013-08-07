@@ -1,4 +1,4 @@
-version 0.1.0  (2013-xx-xx)
+version 0.0.1  (2013-08-07)
 ===========================
 
-First release.
+Basic tokenizer
