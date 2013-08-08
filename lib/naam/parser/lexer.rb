@@ -17,6 +17,8 @@ module Naam::Parser
         LexicalUnit.keyword(token)
       elsif token == 'else'
         LexicalUnit.keyword(token)
+      elsif token == 'print'
+        LexicalUnit.keyword(token)
       elsif token =~ /[+|-]?\d+/
         LexicalUnit.int(token)
       else

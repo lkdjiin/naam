@@ -18,13 +18,13 @@ This is Naam's grammar:
 
     print_statement   ::= 'print' word '(' int ')' eol
 
-    function_def      ::= word '(' int ')' '=' eol {if_clause} else_clause
+    function_def      ::= word '(' word ')' '=' eol {if_clause} else_clause
 
-    if_clause         ::= int 'if' test
+    if_clause         ::= int 'if' test eol
 
     test              ::= word op int
 
-    else_clause       ::= int 'else'
+    else_clause       ::= int 'else' eol
 
     op                ::= '<' | '>'
 

@@ -12,13 +12,18 @@ module Naam
       raise ArgumentError unless Reader.naam_source_file?(filename)
       source_lines = Reader.read filename
       lexer = Parser::Lexer.new
+      units = []
 
       source_lines.each do |line|
         tkr = Parser::Tokenizer.new(line)
         while tkr.has_more_token?
-          puts lexer.from_token(tkr.next_token).inspect
+          units << lexer.from_token(tkr.next_token)
         end
       end
+
+      comp = Compiler.new
+      comp.compile(units.dup)
+      units.each {|u| puts u.inspect }
     end
 
   end

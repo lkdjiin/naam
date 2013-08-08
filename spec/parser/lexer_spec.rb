@@ -53,6 +53,12 @@ describe Naam::Parser::Lexer do
       lexeme.type.should == :keyword
       lexeme.value.should == "else"
     end
+
+    it "should lexify 'print'" do
+      lexeme = @lexer.from_token("print")
+      lexeme.type.should == :keyword
+      lexeme.value.should == "print"
+    end
   end
 
   it "should lexify affect" do
