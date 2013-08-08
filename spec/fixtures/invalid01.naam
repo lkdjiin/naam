@@ -1,0 +1,4 @@
+sign n =
+1 if n > 1
+-1 if n < 0
+0 else
