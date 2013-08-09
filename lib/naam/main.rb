@@ -23,7 +23,6 @@ module Naam
 
       comp = Compiler.new
       comp.compile(units.dup)
-      units.each {|u| puts u.inspect }
     end
 
   end
