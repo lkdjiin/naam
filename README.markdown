@@ -1,18 +1,25 @@
-FIXME [![Build Status](https://travis-ci.org/lkdjiin/FIXME.png)](https://travis-ci.org/lkdjiin/FIXME)
+Naam
 ================
-
 
 Description
 -----------
+Naam is a toy language. This is a Naam to PIR compiler (PIR is an assembly
+language for the Parrot Virtual Machine).
 
+This is a work in progress, don't expect to much.
+
+All this repository code is essentially a support for a series of
+blog posts I wrote (in french) at http://lkdjiin.github.io/.
 
 Install
 -------------------------
 
+Clone this repo.
 
 Usage
 --------------------------
 
+More to come…
 
 
 Dependencies
@@ -29,17 +36,9 @@ Contributing
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-### There is many other ways to contibute to FIXME
-
-1. Report any bug
-2. Give me ideas
-3. Correct my poor english syntax
-4. Blog about FIXME
-5. Tell FIXME to your friends and colleagues
-
 License
 --------------------------
-
+Apache v2 License
 
 
 Questions and/or Comments
