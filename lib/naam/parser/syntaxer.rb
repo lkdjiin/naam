@@ -74,8 +74,8 @@ module Naam::Parser
       @series = []
       accept_series(:word, :paro, :word, :parc, :affect, :eol)
       f_header = Naam::AST::FunctionHeader.new
-      f_header.add_child(Naam::AST::FunctionHeaderName.new(@series[0].value))
-      f_header.add_child(Naam::AST::FunctionHeaderArg.new(@series[2].value))
+      f_header.add_child(Naam::AST::Name.new(@series[0].value))
+      f_header.add_child(Naam::AST::Arg.new(@series[2].value))
       node.add_child(f_header)
     end
 

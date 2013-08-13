@@ -1,5 +1,5 @@
 module Naam::AST
-  class FunctionHeaderName < Node
+  class Name < Node
     def initialize value
       super("name")
       @value = value
