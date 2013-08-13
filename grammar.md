@@ -18,7 +18,9 @@ This is Naam's grammar:
 
     print_statement   ::= 'print' word '(' int ')' eol
 
-    function_def      ::= word '(' word ')' '=' eol {if_clause} else_clause
+    function_def      ::=  function_header {if_clause} else_clause
+
+    function_header   ::= word '(' word ')' '=' eol
 
     if_clause         ::= int 'if' test eol
 

@@ -3,7 +3,7 @@
 require 'naam/main'
 require 'naam/reader'
 require 'naam/parser'
-require 'naam/compiler'
+require 'naam/ast'
 require 'naam/emitter'
 
 # Public: Naam is a toy language. The word naam stands for

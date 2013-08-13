@@ -1,28 +1,26 @@
-module Naam
+module Naam::Parser
 
-  # Public: Here we transform a list of lexical units in a PIR source
-  # code. At least this is the goal.
+  # Public: Here we transform a list of lexical units in an AST.
   #
   # The logic of this class try follow the grammar of Naam (see the file
   # grammar.md).
-  class Compiler
+  class Syntaxer
 
     def initialize
       @series = []
-      @current_label = "LABEL0000"
-      @labels = []
       @main = []
+      @ast = Naam::AST::Program.new
     end
 
-    # Public: Compile lexical units from a Naam program in a PIR
-    # program.
+    # Public: Compile lexical units from a Naam program in an AST.
     #
     # units - Array of LexicalUnits
     #
-    # Returns nothing.
-    def compile units
+    # Returns the AST.
+    def run units
       @units = units
       program
+      @ast
     end
 
     private
@@ -32,16 +30,13 @@ module Naam
     # Returns nothing.
     def program
       while @units.size > 0
-        @series = []
         case @units.first.type
+        # When catched here, an end of line is not significant.
         when :eol then accept(:eol)
         else
           instruction
         end
       end
-      @labels.each {|lbl| emit(:label, lbl) }
-      emit(:function_footer)
-      Emitter.main(@main)
     end
 
     # Returns nothing.
@@ -58,40 +53,64 @@ module Naam
 
     # Returns nothing.
     def print_statement
+      @series = []
       accept(:keyword, 'print')
       accept_series(:word, :paro, :int, :parc, :eol)
-      @main << "#{@series[1].value}(#{@series[3].value})"
-      @series = []
+      temp = @series[1].value + @series[2].value + @series[3].value +
+        @series[4].value 
+      @ast.add_child(Naam::AST::PrintStatement.new(temp))
     end
 
     # Returns nothing.
     def function_def
+      node = Naam::AST::FunctionDef.new
+      @ast.add_child node
+      function_header(node)
+      if_clause(node) while if_clause?
+      else_clause(node)
+    end
+
+    def function_header(node)
+      @series = []
       accept_series(:word, :paro, :word, :parc, :affect, :eol)
-      emit(:function_header)
-      if_clause while if_clause?
-      else_clause
+      f_header = Naam::AST::FunctionHeader.new
+      f_header.add_child(Naam::AST::FunctionHeaderName.new(@series[0].value))
+      f_header.add_child(Naam::AST::FunctionHeaderArg.new(@series[2].value))
+      node.add_child(f_header)
     end
 
     # Returns nothing.
-    def if_clause
+    def if_clause(node)
+      @series = []
+      if_node = Naam::AST::IfClause.new
       accept(:int)
+      if_node.add_child(Naam::AST::ReturnValue.new(@series[0].value))
       accept(:keyword, 'if')
-      test
+      test(if_node)
       accept(:eol)
-      emit(:if_clause, next_label(@series[0].value))
+      node.add_child(if_node)
     end
 
     # Returns nothing.
-    def else_clause
+    def else_clause(node)
+      @series = []
       accept(:int)
       accept(:keyword, 'else')
       accept(:eol)
-      emit(:else_clause)
+      else_node = Naam::AST::ElseClause.new
+      else_node.add_child(Naam::AST::ReturnValue.new(@series[0].value))
+      node.add_child(else_node)
     end
 
     # Returns nothing.
-    def test
+    def test(node)
+      @series = []
       accept_series(:word, :op, :int)
+      test_node = Naam::AST::Test.new
+      test_node.add_child(Naam::AST::TestLeft.new(@series[0].value))
+      test_node.add_child(Naam::AST::TestOp.new(@series[1].value))
+      test_node.add_child(Naam::AST::TestRight.new(@series[2].value))
+      node.add_child(test_node)
     end
 
     # Accepts the next lexical unit, given type match the unit type.
@@ -127,38 +146,5 @@ module Naam
       @units[1].type == :keyword && @units[1].value == 'if'
     end
 
-    # Send a message to Emitter module.
-    #
-    # type  - A Symbol (see Emitter).
-    # label - A Hash composed of:
-    #         :label - The label name as a String.
-    #         :value - The String value that will be returned by
-    #                  PIR instructions for this label.
-    #         By default, label is nil and unused.
-    #
-    # Returns nothing.
-    def emit(type, label = nil)
-      Emitter.emit(type, @series, label)
-      @series = []
-    end
-
-    # Get a label.
-    #
-    # value - String value associated to the label.
-    #
-    # Examples
-    #
-    #   next_label("123")
-    #   # => { label: "LABEL0000", value: "123" }
-    #   next_label("-9")
-    #   # => { label: "LABEL0001", value: "-9" }
-    #
-    # Returns the Hash label.
-    def next_label(value)
-      temp = { label: @current_label, value: value }
-      @labels << temp
-      @current_label = @current_label.next
-      temp
-    end
   end
 end

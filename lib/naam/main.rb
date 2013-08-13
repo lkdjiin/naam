@@ -21,8 +21,9 @@ module Naam
         end
       end
 
-      comp = Compiler.new
-      comp.compile(units.dup)
+      syntaxer = Parser::Syntaxer.new
+      ast = syntaxer.run(units.dup)
+      ast.display
     end
 
   end
