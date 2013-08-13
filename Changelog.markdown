@@ -1,6 +1,14 @@
 This changelog is auto-generated using git-changelog.
 See https://github.com/lkdjiin/git-changelog for more information.
 
+
+2013-08-13 Version 0.0.5  
+==========================
+* 2013-08-13 Add some tests for AST  
+* 2013-08-13 Rename some AST nodes  
+* 2013-08-13 First draft of the AST  
+* 2013-08-12 Add Apache v2 License  
+* 2013-08-12 Update Readme  
 * 2013-08-12 Add changelog rake task  
 
 2013-08-09 Version 0.0.4  
