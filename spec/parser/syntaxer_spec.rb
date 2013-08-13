@@ -1,19 +1,5 @@
 require './spec/helper'
 
-def get_units_from(filename)
-  source_lines = Reader.read fixture_file_path(filename)
-  lexer = Parser::Lexer.new
-  units = []
-
-  source_lines.each do |line|
-    tkr = Parser::Tokenizer.new(line)
-    while tkr.has_more_token?
-      units << lexer.from_token(tkr.next_token)
-    end
-  end
-  units
-end
-
 describe Naam::Parser::Syntaxer do
   describe "valid file" do
     describe "checking sign.naam" do

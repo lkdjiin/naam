@@ -6,7 +6,7 @@ module Naam::AST
       @children = []
     end
 
-    attr_reader :children
+    attr_reader :children, :name
 
     def add_child child; @children << child; end
 
