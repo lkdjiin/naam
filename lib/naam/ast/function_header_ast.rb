@@ -1,5 +1,5 @@
-module Naam::AST
-  class FunctionHeader < Node
+module Naam
+  class FunctionHeaderAST < AST
     def initialize
       super("header")
     end

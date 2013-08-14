@@ -1,4 +1,4 @@
-module Naam::Parser
+module Naam
 
   # A container for lexical units.
   class LexicalUnit

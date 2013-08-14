@@ -11,17 +11,17 @@ module Naam
     def self.run(filename)
       raise ArgumentError unless Reader.naam_source_file?(filename)
       source_lines = Reader.read filename
-      lexer = Parser::Lexer.new
+      lexer = Lexer.new
       units = []
 
       source_lines.each do |line|
-        tkr = Parser::Tokenizer.new(line)
+        tkr = Tokenizer.new(line)
         while tkr.has_more_token?
           units << lexer.from_token(tkr.next_token)
         end
       end
 
-      syntaxer = Parser::Syntaxer.new
+      syntaxer = Syntaxer.new
       ast = syntaxer.run(units.dup)
       ast.display
     end

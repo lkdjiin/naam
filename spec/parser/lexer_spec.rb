@@ -1,8 +1,8 @@
 require './spec/helper'
 
-describe Naam::Parser::Lexer do
+describe Lexer do
   before do
-    @lexer = Parser::Lexer.new
+    @lexer = Lexer.new
   end
 
   it "should lexify positive integer" do

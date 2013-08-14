@@ -1,4 +1,4 @@
-module Naam::Parser
+module Naam
 
   # Internal: Tokenize a string of naam code.
   class Tokenizer

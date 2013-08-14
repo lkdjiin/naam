@@ -1,5 +1,5 @@
-module Naam::AST
-  class Node
+module Naam
+  class AST
 
     def initialize name
       @name = name

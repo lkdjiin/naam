@@ -1,5 +1,5 @@
-module Naam::AST
-  class ElseClause < Node
+module Naam
+  class ElseClauseAST < AST
     def initialize
       super("else clause")
     end

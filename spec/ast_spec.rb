@@ -2,15 +2,14 @@ require './spec/helper'
 
 describe "AST" do
   before do
-    syntaxer = Naam::Parser::Syntaxer.new
+    syntaxer = Syntaxer.new
     units = get_units_from "sign.naam"
     @ast = syntaxer.run(units)
   end
 
-  specify { @ast.is_a?(Naam::AST::Node).should be_true }
-  specify { @ast.name.should eq "program" }
-  specify { @ast.children.first.name.should eq "function definition" }
-  specify { @ast.children.last.name.should eq "print statement" }
+  specify { @ast.is_a?(AST).should be_true }
+  specify { @ast.name.should eq "ast" }
+  specify { @ast.children.first.name.should eq "program" }
 
   it "should output ast without raising error" do
     lambda {@ast.display}.should_not raise_error
