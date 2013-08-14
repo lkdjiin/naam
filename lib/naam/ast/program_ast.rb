@@ -1,5 +1,5 @@
-module Naam::AST
-  class Program < Node
+module Naam
+  class ProgramAST < AST
     def initialize
       super("program")
     end

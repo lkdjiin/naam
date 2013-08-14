@@ -1,5 +1,5 @@
-module Naam::AST
-  class PrintStatement < Node
+module Naam
+  class PrintStatementAST < AST
     def initialize value
       super("print statement")
       @value = value

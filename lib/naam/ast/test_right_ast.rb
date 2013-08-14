@@ -1,5 +1,5 @@
-module Naam::AST
-  class TestRight < Node
+module Naam
+  class TestRightAST < AST
     def initialize value
       super("right value")
       @value = value

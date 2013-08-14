@@ -1,4 +1,4 @@
-module Naam::Parser
+module Naam
   class Lexer
     def from_token token
       if token == '('
