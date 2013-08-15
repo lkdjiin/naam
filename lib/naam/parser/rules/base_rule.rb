@@ -4,6 +4,12 @@ module Naam
   # to transform lexical units into an AST.
   class BaseRule
 
+    # Public: Returns Boolean true if the next units form an if clause.
+    def self.if_clause?(units)
+      unit = units[1]
+      unit.type == :keyword && unit.value == 'if'
+    end
+
     # Public: Initialize a new rule. The units and ast_node objects
     # given in arguments will be modified by #apply!.
     #
@@ -36,9 +42,9 @@ module Naam
     def accept(type, value = '')
       unit = @units.slice!(0)
       @series << unit
-      raise Error unless unit.type == type
+      raise BadLexemeTypeError unless unit.type == type
       if value != ''
-        raise Error unless unit.value == value
+        raise BadLexemeValueError unless unit.value == value
       end
     end
 

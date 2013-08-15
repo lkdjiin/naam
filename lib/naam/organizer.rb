@@ -17,7 +17,7 @@ module Naam
     def build_main_function
       find_orphans(@ast, PrintStatementAST)
       main = MainAST.new
-      @orphans.each {|o| main.add_child(o) }
+      @orphans.each {|orphan| main.add_child(orphan) }
       @ast.children.first.add_child(main)
       @ast
     end

@@ -10,8 +10,6 @@ module Naam
     def initialize name
       @name = name
       @children = []
-      @@found = false
-      @@detached_child = nil
     end
 
     # Public: Returns Array children's nodes of this node.
@@ -24,8 +22,11 @@ module Naam
     #
     # child - An AST node to add to the list of children.
     #
-    # Returns nothing.
-    def add_child child; @children << child; end
+    # Returns self.
+    def add_child child
+      @children << child
+      self
+    end
 
     # Public: Returns True if this node is a leaf.
     def leaf?; @children.empty?; end
