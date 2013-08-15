@@ -24,4 +24,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'coco', '>= 0.7.1'
   s.add_development_dependency('yard')
   s.add_development_dependency('yard-tomdoc')
+  s.add_development_dependency 'reek', '>= 1.3.2'
 end

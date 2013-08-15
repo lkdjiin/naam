@@ -23,6 +23,9 @@ module Naam
 
       syntaxer = Syntaxer.new
       ast = syntaxer.run(units.dup)
+
+      organizer = Organizer.new(ast)
+      ast = organizer.build_main_function
       ast.display
     end
 
