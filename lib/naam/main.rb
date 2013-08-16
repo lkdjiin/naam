@@ -25,8 +25,11 @@ module Naam
       ast = syntaxer.run(units.dup)
 
       organizer = Organizer.new(ast)
-      ast = organizer.build_main_function
-      ast.display
+      ast = organizer.reorganize
+
+      emitter = Emitter.new(ast)
+      pir_code = emitter.pir_code
+      puts pir_code
     end
 
   end

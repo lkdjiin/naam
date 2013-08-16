@@ -10,6 +10,7 @@ module Naam
     def initialize name
       @name = name
       @children = []
+      @value = nil
     end
 
     # Public: Returns Array children's nodes of this node.
@@ -17,6 +18,8 @@ module Naam
 
     # Public: Returns the String name of this node.
     attr_reader :name
+
+    attr_reader :value
 
     # Public: Add a child node to the end of the children's list.
     #
