@@ -8,6 +8,9 @@ require 'naam'
 if ARGV[0].nil?
   puts "usage: naam filename"
 else
-  main = Naam::Main.run ARGV[0].dup
+  main = Naam::Compiler.new ARGV[0].dup
+  main.compile
+  out_name = File.dirname(File.expand_path(ARGV[0].dup)) + "/out.pir"
+  exec "parrot " + out_name
 end
 

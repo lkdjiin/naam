@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 
-require 'naam/main'
+require 'naam/compiler'
 require 'naam/reader'
 require 'naam/parser'
 require 'naam/ast'

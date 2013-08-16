@@ -30,7 +30,7 @@ module Naam
       when FunctionHeaderAST then compile_header(node)
       when IfClauseAST then compile_if_clause(node)
       when ElseClauseAST then compile_else_clause(node)
-      when FunctionFooterAST then compile_footer(node)
+      when FunctionFooterAST then compile_footer
       end
       node.children.each {|child| compile(child) }
     end
@@ -73,7 +73,7 @@ module Naam
     end
 
     # Returns nothing.
-    def compile_footer(node)
+    def compile_footer
       @labels.each do |lbl|
         @code += lbl[:name] + ":\n"
         @code += "    result = #{lbl[:value]}\n"

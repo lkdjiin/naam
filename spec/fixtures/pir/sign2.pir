@@ -7,8 +7,10 @@
     goto RETURN
 LABEL0001:
     result = 1
+    goto RETURN
 LABEL0002:
     result = -1
+    goto RETURN
 RETURN:
     .return(result)
 .end

@@ -12,6 +12,6 @@ describe Emitter do
   it "should compile to PIR code" do
     emitter = Emitter.new(@ast)
     code = emitter.pir_code
-    code.should eq fixture_file("sign2.pir")
+    code.should eq fixture_file("pir/sign2.pir")
   end
 end
