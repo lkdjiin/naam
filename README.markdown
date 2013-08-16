@@ -26,6 +26,7 @@ Dependencies
 --------------------------
 
   * ruby >= 2.0.0
+  * [Parrot Virtual Machine](http://www.parrot.org/)
 
 Contributing
 -------------------------
