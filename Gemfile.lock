@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    naam (0.0.6)
+    naam (0.1.0)
 
 GEM
   remote: https://rubygems.org/

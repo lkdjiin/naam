@@ -1,5 +1,5 @@
 print sign(-99)
-sign(n)=
+sign(n) ->
 1  if n > 0
 -1 if n < 0
 0  else

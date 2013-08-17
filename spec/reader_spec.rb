@@ -4,7 +4,7 @@ describe Naam::Reader do
 
   it "should return a list of lines" do
     list = Naam::Reader.read fixture_file_path('sign.naam')
-    list.should == ["sign(n)=\n", "1  if n > 0\n", "-1 if n < 0\n",
+    list.should == ["sign(n) ->\n", "1  if n > 0\n", "-1 if n < 0\n",
                     "0  else\n", "\n", "print sign(4)\n"]
   end
   

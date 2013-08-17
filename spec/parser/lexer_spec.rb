@@ -62,9 +62,9 @@ describe Lexer do
   end
 
   it "should lexify affect" do
-    lexeme = @lexer.from_token("=")
+    lexeme = @lexer.from_token("->")
     lexeme.type.should == :affect
-    lexeme.value.should == "="
+    lexeme.value.should == "->"
   end
 
   describe "operators" do

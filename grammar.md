@@ -16,11 +16,11 @@ This is Naam's grammar:
 
     instruction       ::= function_def | print_statement
 
-    print_statement   ::= 'print' word '(' int ')' eol
+    print_statement   ::= 'print' word ( int ) eol
 
     function_def      ::=  function_header {if_clause} else_clause
 
-    function_header   ::= word '(' word ')' '=' eol
+    function_header   ::= word ( word ) -> eol
 
     if_clause         ::= int 'if' test eol
 
@@ -28,7 +28,7 @@ This is Naam's grammar:
 
     else_clause       ::= int 'else' eol
 
-    op                ::= '<' | '>'
+    op                ::= < | >
 
     eol               ::= ---End of line
     int               ::= ---Integer

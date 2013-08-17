@@ -28,7 +28,7 @@ module Naam
 
     def self.eol ; new(:eol, "\n") ; end
 
-    def self.affect ; new(:affect, "=") ; end
+    def self.affect ; new(:affect, "->") ; end
   end
 
 end

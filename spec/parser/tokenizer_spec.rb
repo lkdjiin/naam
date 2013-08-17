@@ -4,7 +4,7 @@ describe Tokenizer do
 
   describe "has_more_token?" do# {{{
     it "should return true when a token is available" do
-      tkr = Tokenizer.new("sign(n)=\n")
+      tkr = Tokenizer.new("sign(n) ->\n")
       tkr.has_more_token?.should be_true
       tkr.next_token
       tkr.has_more_token?.should be_true
@@ -24,7 +24,7 @@ describe Tokenizer do
     end
 
     it "should return word" do
-      tkr = Tokenizer.new("sign(n)=\n")
+      tkr = Tokenizer.new("sign(n) ->\n")
       tkr.next_token.should == "sign"
     end
 
@@ -38,9 +38,9 @@ describe Tokenizer do
       tkr.next_token.should == ')'
     end
 
-    it "should return eq" do
-      tkr = Tokenizer.new("=\n")
-      tkr.next_token.should == '='
+    it "should return affect" do
+      tkr = Tokenizer.new("->\n")
+      tkr.next_token.should == '->'
     end
 
     it "should return end of line" do
@@ -50,14 +50,14 @@ describe Tokenizer do
 
   end# }}}
 
-  describe "example 1: sign(n)=" do# {{{
+  describe "example 1: sign(n)->" do# {{{
     it "should tokenize" do
-      tkr = Tokenizer.new("sign(n)=\n")
+      tkr = Tokenizer.new("sign(n)->\n")
       tkr.next_token.should == "sign"
       tkr.next_token.should == "("
       tkr.next_token.should == "n"
       tkr.next_token.should == ")"
-      tkr.next_token.should == "="
+      tkr.next_token.should == "->"
       tkr.next_token.should == "\n"
     end
   end# }}}

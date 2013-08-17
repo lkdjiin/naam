@@ -53,7 +53,7 @@ describe LexicalUnit do
   it "should create a type affect" do
     unit = LexicalUnit.affect()
     unit.type.should == :affect
-    unit.value.should == "="
+    unit.value.should == "->"
   end
 
   it "should create a type op" do

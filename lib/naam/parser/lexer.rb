@@ -28,7 +28,7 @@ module Naam
         LexicalUnit.parc()
       elsif token == "\n"
         LexicalUnit.eol()
-      elsif token == '='
+      elsif token == '->'
         LexicalUnit.affect()
       elsif op?
         LexicalUnit.op(@token)
