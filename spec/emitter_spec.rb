@@ -59,4 +59,25 @@ describe Emitter do
     code.should eq fixture_file("pir/mod.pir")
   end
 
+  it "should compile power2.naam" do
+    build_ast("power2.naam")
+    emitter = Emitter.new(@ast)
+    code = emitter.pir_code
+    code.should eq fixture_file("pir/power2.pir")
+  end
+
+  it "should compile ten_percent.naam" do
+    build_ast("ten_percent.naam")
+    emitter = Emitter.new(@ast)
+    code = emitter.pir_code
+    code.should eq fixture_file("pir/ten_percent.pir")
+  end
+
+  it "should compile ten_percent2.naam" do
+    build_ast("ten_percent2.naam")
+    emitter = Emitter.new(@ast)
+    code = emitter.pir_code
+    code.should eq fixture_file("pir/ten_percent2.pir")
+  end
+
 end

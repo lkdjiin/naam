@@ -1,0 +1,4 @@
+ten%(n) ->
+n / 10 else
+
+print ten%(100)
