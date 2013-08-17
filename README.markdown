@@ -18,6 +18,19 @@ Clone this repo.
 
 Usage
 --------------------------
+Write this in a file named `sign.naam`:
+
+    sign(n) ->
+    1  if n > 0
+    -1 if n < 0
+    0  else
+    
+    print sign(4)
+
+Then compile and run with:
+
+    $ naam sign.naam
+    1
 
 More to come…
 

@@ -79,6 +79,13 @@ describe Lexer do
       lexeme.type.should == :op
       lexeme.value.should == ">"
     end
+
+    it "should lexify +" do
+      lexeme = @lexer.from_token("+")
+      lexeme.type.should == :op
+      lexeme.value.should == "+"
+    end
+
   end
 
 end

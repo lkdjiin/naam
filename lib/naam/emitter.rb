@@ -68,7 +68,7 @@ module Naam
 
     # Returns nothing.
     def compile_else_clause(node)
-      @code += "    result = #{node.children.first.value}\n"
+      @code += "    result = #{node.children.first.children.first.value}\n"
       @code += "    goto RETURN\n"
     end
 

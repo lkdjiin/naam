@@ -1,0 +1,4 @@
+power(n) ->
+n * n else
+
+print power(9)

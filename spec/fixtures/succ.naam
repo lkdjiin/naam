@@ -1,0 +1,4 @@
+succ(n) ->
+n + 1 else
+
+print succ(10)

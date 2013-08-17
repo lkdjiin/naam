@@ -1,0 +1,4 @@
+tenth(n) ->
+n / 10 else
+
+print tenth(99)

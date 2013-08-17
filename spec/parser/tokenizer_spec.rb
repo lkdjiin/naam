@@ -95,5 +95,16 @@ describe Tokenizer do
     end
   end# }}}
 
+  describe "example 5: n + 1 else" do
+    it "should tokenize" do
+      tkr = Tokenizer.new("n + 1 else\n")
+      tkr.next_token.should == "n"
+      tkr.next_token.should == "+"
+      tkr.next_token.should == "1"
+      tkr.next_token.should == "else"
+      tkr.next_token.should == "\n"
+    end
+  end
+
 end
 

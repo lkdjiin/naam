@@ -62,4 +62,10 @@ describe LexicalUnit do
     unit.value.should == "<"
   end
 
+  it "should create a type op for +" do
+    unit = LexicalUnit.op("+")
+    unit.type.should == :op
+    unit.value.should == "+"
+  end
+
 end

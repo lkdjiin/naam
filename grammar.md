@@ -22,13 +22,15 @@ This is Naam's grammar:
 
     function_header   ::= word ( word ) -> eol
 
-    if_clause         ::= int 'if' test eol
+    if_clause         ::= expr 'if' test eol
 
     test              ::= word op int
 
-    else_clause       ::= int 'else' eol
+    else_clause       ::= expr 'else' eol
 
-    op                ::= < | >
+    expr              ::= int | word [op expr]
+
+    op                ::= + | < | >
 
     eol               ::= ---End of line
     int               ::= ---Integer

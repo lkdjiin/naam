@@ -1,0 +1,4 @@
+prev(n) ->
+n - 1 else
+
+print prev(10)

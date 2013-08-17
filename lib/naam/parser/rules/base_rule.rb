@@ -38,13 +38,16 @@ module Naam
     #         empty string, meaning the value doesn't matter.
     #
     # Returns nothing.
-    # Raises an error if type (and maybe value) doesn't match.
+    # Raises BadLexemeError if type or value doesn't match.
     def accept(type, value = '')
       unit = @units.slice!(0)
       @series << unit
-      raise BadLexemeTypeError unless unit.type == type
+      unless unit.type == type
+        raise(BadLexemeError,
+          "Expected: (#{type}, #{value}), got: (#{unit.type}, #{unit.value})")
+      end
       if value != ''
-        raise BadLexemeValueError unless unit.value == value
+        raise BadLexemeError unless unit.value == value
       end
     end
 

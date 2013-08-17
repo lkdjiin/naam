@@ -3,7 +3,7 @@ module Naam
   class ProgramRule < BaseRule
     def apply!
       prog_node = ProgramAST.new
-      while @units.size > 0
+      while more_units?
         case @units.first.type
         # When catched here, an end of line is not significant.
         when :eol then accept(:eol)
@@ -12,6 +12,12 @@ module Naam
         end
       end
       @ast_node.add_child(prog_node)
+    end
+
+    private
+
+    def more_units?
+      @units.size > 0
     end
   end
 end
