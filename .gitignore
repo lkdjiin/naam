@@ -4,3 +4,5 @@ coverage/
 *.swp
 doc/
 .yardoc/
+
+spec/fixtures/out.pir
