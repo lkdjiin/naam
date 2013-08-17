@@ -3,7 +3,7 @@ require './spec/helper'
 describe "AST" do
   before do
     syntaxer = Syntaxer.new
-    units = get_units_from "sign.naam"
+    units = get_units_from "v0.2.0/sign.naam"
     @ast = syntaxer.run(units)
   end
 

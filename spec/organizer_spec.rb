@@ -3,7 +3,7 @@ require './spec/helper'
 describe Organizer do
   before do
     syntaxer = Syntaxer.new
-    units = get_units_from "sign2.naam"
+    units = get_units_from "v0.2.0/sign2.naam"
     ast = syntaxer.run(units)
     organizer = Organizer.new(ast)
     ast = organizer.reorganize
