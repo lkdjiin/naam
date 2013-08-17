@@ -4,7 +4,7 @@ module Naam
   class Lexer
 
     def op?
-      ['<', '>', '+', '-', '*', '/'].include? @token
+      ['<', '>', '+', '-', '*', '/', '%'].include? @token
     end
 
     def keyword?

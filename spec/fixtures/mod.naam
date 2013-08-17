@@ -1,0 +1,4 @@
+mod(n) ->
+n % 2 else
+
+print mod(11)

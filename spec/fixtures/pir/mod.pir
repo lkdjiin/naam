@@ -1,13 +1,13 @@
-.sub 'tenth'
+.sub 'mod'
     .param int n
     .local int result
-    result = n / 10
+    result = n % 2
     goto RETURN
 RETURN:
     .return(result)
 .end
 .sub main :main
     .local int f
-    f = 'tenth'(99)
+    f = 'mod'(11)
     say f
 .end

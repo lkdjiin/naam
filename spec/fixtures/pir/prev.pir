@@ -1,4 +1,4 @@
-.sub prev
+.sub 'prev'
     .param int n
     .local int result
     result = n - 1
@@ -8,6 +8,6 @@ RETURN:
 .end
 .sub main :main
     .local int f
-    f = prev(10)
+    f = 'prev'(10)
     say f
 .end

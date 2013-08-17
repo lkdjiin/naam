@@ -1,4 +1,4 @@
-.sub power
+.sub 'power'
     .param int n
     .local int result
     result = n * n
@@ -8,6 +8,6 @@ RETURN:
 .end
 .sub main :main
     .local int f
-    f = power(9)
+    f = 'power'(9)
     say f
 .end

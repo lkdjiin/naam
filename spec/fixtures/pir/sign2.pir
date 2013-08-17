@@ -1,4 +1,4 @@
-.sub sign
+.sub 'sign'
     .param int n
     .local int result
     if n > 0 goto LABEL0001
@@ -16,8 +16,8 @@ RETURN:
 .end
 .sub main :main
     .local int f
-    f = sign(-99)
+    f = 'sign'(-99)
     say f
-    f = sign(4)
+    f = 'sign'(4)
     say f
 .end
