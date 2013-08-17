@@ -12,7 +12,7 @@ module Naam
     end
 
     def int?
-      @token =~ /[+|-]?\d+/
+      @token =~ /\A[+|-]?\d+\z/
     end
 
     # Public: Build a LexicalUnit from a given token.

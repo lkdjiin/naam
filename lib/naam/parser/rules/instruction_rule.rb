@@ -11,7 +11,7 @@ module Naam
       when :word
         FunctionDefRule.new(@units, @ast_node).apply!
       else
-        raise Error
+        raise RuleError, "#{@units.first.inspect}"
       end
     end
   end

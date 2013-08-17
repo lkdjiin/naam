@@ -23,6 +23,12 @@ describe Lexer do
     lexeme.value.should == "foo"
   end
 
+  it "should lexify a word with num" do
+    lexeme = @lexer.from_token("foo2")
+    lexeme.type.should == :word
+    lexeme.value.should == "foo2"
+  end
+
   it "should lexify paro" do
     lexeme = @lexer.from_token("(")
     lexeme.type.should == :paro

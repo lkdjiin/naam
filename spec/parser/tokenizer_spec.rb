@@ -95,7 +95,7 @@ describe Tokenizer do
     end
   end# }}}
 
-  describe "example 5: n + 1 else" do
+  describe "example 5: n + 1 else" do# {{{
     it "should tokenize" do
       tkr = Tokenizer.new("n + 1 else\n")
       tkr.next_token.should == "n"
@@ -104,7 +104,19 @@ describe Tokenizer do
       tkr.next_token.should == "else"
       tkr.next_token.should == "\n"
     end
-  end
+  end# }}}
+
+  describe "example 6: mod2(n) ->" do# {{{
+    it "should tokenize" do
+      tkr = Tokenizer.new("mod2(n) ->\n")
+      tkr.next_token.should == "mod2"
+      tkr.next_token.should == "("
+      tkr.next_token.should == "n"
+      tkr.next_token.should == ")"
+      tkr.next_token.should == "->"
+      tkr.next_token.should == "\n"
+    end
+  end# }}}
 
 end
 

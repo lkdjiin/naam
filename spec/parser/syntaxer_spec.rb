@@ -18,6 +18,15 @@ describe Syntaxer do
         lambda { syntaxer.run(units) }.should_not raise_error
       end
     end
+
+    describe "checking mod2.naam" do
+      it "should not raise error" do
+        syntaxer = Syntaxer.new
+        units = get_units_from "mod2.naam"
+        lambda { syntaxer.run(units) }.should_not raise_error
+      end
+    end
+
   end# }}}
 
   describe "invalid file" do# {{{

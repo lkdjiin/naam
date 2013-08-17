@@ -45,7 +45,7 @@ describe Emitter do
     code.should eq fixture_file("pir/tenth.pir")
   end
 
-  xit "should compile mod2.naam" do
+  it "should compile mod2.naam" do
     build_ast("mod2.naam")
     emitter = Emitter.new(@ast)
     code = emitter.pir_code
