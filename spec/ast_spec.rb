@@ -11,7 +11,8 @@ describe "AST" do
   specify { @ast.name.should eq "ast" }
   specify { @ast.children.first.name.should eq "program" }
 
-  it "should output ast without raising error" do
-    lambda {@ast.display}.should_not raise_error
+  it "should display itself" do
+    output = capture_stdout { @ast.display }
+    output.start_with?("AST\n  ProgramAST").should be_true
   end
 end

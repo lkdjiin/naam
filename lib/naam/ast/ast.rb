@@ -35,7 +35,7 @@ module Naam
     def leaf?; @children.empty?; end
 
     def display(indent = 0)
-      print " " * indent + @name
+      print " " * indent + self.class.name.split('::').last
       print " ::= #{@value}" if leaf?
       puts
       @children.each {|child| child.display(indent + 2) }
