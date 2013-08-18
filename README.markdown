@@ -32,6 +32,30 @@ Then compile and run with:
     $ naam sign.naam
     1
 
+###Naam's words
+
+An identifier in Naam is called a word. A word starts with a
+character that is not:
+
+* A whitespace
+* A parenthesis (opened or closed)
+* A digit
+
+A word ends on the first whitespace or parenthesis.
+
+The following list are supposed to be valid words/ids in Naam:
+
+* sign
+* sign2
+* !sign
+* !
+* .!=>
+* ten-percent
+* ten%
+* ←
+* ---
+
+
 More to come…
 
 

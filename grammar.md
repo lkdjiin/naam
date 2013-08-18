@@ -32,7 +32,9 @@ This is Naam's grammar:
 
     op                ::= + | < | >
 
-    eol               ::= ---End of line
-    int               ::= ---Integer
-    word              ::= ---Anything else
+    eol               ::= --- End of line
+    int               ::= --- Integer
+    word              ::= --- A word starts on a character other than
+                          --- whitespace, parenthesis and digit. It
+                          --- ends on a parenthesis or a whitespace.
 
