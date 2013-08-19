@@ -60,6 +60,12 @@ describe Lexer do
       lexeme.value.should == "else"
     end
 
+    it "should lexify ';'" do
+      lexeme = @lexer.from_token(";")
+      lexeme.type.should == :keyword
+      lexeme.value.should == "else"
+    end
+
     it "should lexify 'print'" do
       lexeme = @lexer.from_token("print")
       lexeme.type.should == :keyword

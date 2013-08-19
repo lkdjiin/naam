@@ -118,5 +118,14 @@ describe Tokenizer do
     end
   end# }}}
 
+  describe "example 7: 0 ;" do# {{{
+    it "should tokenize" do
+      tkr = Tokenizer.new("0 ;\n")
+      tkr.next_token.should == "0"
+      tkr.next_token.should == ";"
+      tkr.next_token.should == "\n"
+    end
+  end# }}}
+
 end
 

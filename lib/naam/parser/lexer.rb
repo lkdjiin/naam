@@ -8,7 +8,7 @@ module Naam
     end
 
     def keyword?
-      ['if', 'else', 'print'].include? @token
+      ['if', 'else', ';', 'print'].include? @token
     end
 
     def int?
@@ -33,7 +33,7 @@ module Naam
       elsif op?
         LexicalUnit.op(@token)
       elsif keyword?
-        LexicalUnit.keyword(@token)
+        to_keyword
       elsif int?
         LexicalUnit.int(token)
       else
@@ -41,5 +41,11 @@ module Naam
       end
     end
 
+    private
+
+    def to_keyword
+      @token = 'else' if @token == ';'
+      LexicalUnit.keyword(@token)
+    end
   end
 end
