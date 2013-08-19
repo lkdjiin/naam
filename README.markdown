@@ -55,6 +55,10 @@ The following list are supposed to be valid words/ids in Naam:
 * ←
 * ---
 
+###Naam's keywords
+
+There is 3 keywords: `if`, `else` and `print`. The character `;` is an alias to
+`else`.
 
 More to come…
 
